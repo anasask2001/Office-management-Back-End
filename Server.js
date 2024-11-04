@@ -22,13 +22,11 @@ const server = express();
 
 
 
-
 server.use(cors({
-    origin: "*",
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    credentials: true 
+  origin: process.env.ALLOWED_ORIGIN,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  credentials: true 
 }));
-
 
 server.use(express.json());
 
