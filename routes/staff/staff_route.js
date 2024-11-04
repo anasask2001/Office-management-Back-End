@@ -2,7 +2,8 @@ import express from 'express';
 import { staffunderintern } from '../../controllers/staff/staff.js';
 import { trycatch } from '../../middleware/trycatch.js';
 import { seatbooking } from '../../controllers/staff/seat.js';
-import { findnotbookedintern } from '../../controllers/staff/Intern.js';
+import { findnotbookedintern } from '../../controllers/staff/intern.js';
+
 
 const route =express.Router();
 route.patch("/booking/:staffid/:internid/:seatid",trycatch(seatbooking))
