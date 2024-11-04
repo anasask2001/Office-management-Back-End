@@ -22,7 +22,7 @@ const server = express();
 
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
-console.log(allowedOrigins,"aans");
+
 
 server.use(cors({
     origin: allowedOrigins,
