@@ -19,10 +19,19 @@ import payment from "./routes/admin/payment_route.js";
 Dotenv.config();
 
 const server = express();
-const upload = multer();
+
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
+console.log(allowedOrigins,"aans");
+
+server.use(cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    credentials: true 
+}));
+
 
 server.use(express.json());
-server.use(cors());
 
 server.use("/api/admin", adminroute);
 server.use("/api", payment);
