@@ -11,7 +11,6 @@ import { errorHandler } from "./middleware/error_middleware.js";
 import internroute from "./routes/admin/intern_route.js";
 import rooms from "../Space_management_server/routes/admin/room_route.js";
 import seat from "../Space_management_server/routes/admin/seat_route.js";
-import route from "./routes/admin/admin_route.js";
 import staff from "./routes/staff/staff_route.js";
 import booking from "../Space_management_server/routes/staff/booking_route.js"
 import payment from "../Space_management_server/routes/admin/payment_route.js"
