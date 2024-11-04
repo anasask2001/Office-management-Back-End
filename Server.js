@@ -44,8 +44,3 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server Running on Port ${PORT}`);
 });
-// server.use(
-//   cors({
-//     origin: "https://space-management.vercel.app",
-//   })
-// );
