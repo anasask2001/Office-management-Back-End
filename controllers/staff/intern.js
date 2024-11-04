@@ -1,4 +1,4 @@
-import { Intern } from "../../models/intern.js"
+import { Intern } from "../../models/intern.js";
 
 export const findnotbookedintern = async(req, res) => {
     const {id}= req.params;
