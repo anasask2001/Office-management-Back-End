@@ -22,11 +22,28 @@ const server = express();
 
 
 
-server.use(cors({
-  origin: process.env.ALLOWED_ORIGIN,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  credentials: true 
-}));
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
+  .split(",")
+  .map((origin) => origin.trim());
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    console.log("Request Origin:", origin);
+
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 
 server.use(express.json());
 
